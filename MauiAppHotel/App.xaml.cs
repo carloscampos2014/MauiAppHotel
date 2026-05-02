@@ -11,6 +11,19 @@ public partial class App : Application
 
     protected override Window CreateWindow(IActivationState? activationState)
     {
-        return new Window(new AppShell());
+        var displayInfo = DeviceDisplay.MainDisplayInfo;
+
+        var screenWidth = displayInfo.Width / displayInfo.Density;
+        var screenHeight = displayInfo.Height / displayInfo.Density;
+
+        return new Window(new AppShell())
+        {
+            IsMaximizable = false,
+            IsMinimizable = false,
+            Width = 400,
+            Height = 600,
+            X = (screenWidth - 400) / 2,
+            Y = (screenHeight - 600) / 2
+        };
     }
 }
