@@ -16,7 +16,7 @@ public partial class App : Application
         var screenWidth = displayInfo.Width / displayInfo.Density;
         var screenHeight = displayInfo.Height / displayInfo.Density;
 
-        return new Window(new AppShell())
+        return new Window(new NavigationPage(new Views.ContratacaoHospedagem()))
         {
             IsMaximizable = false,
             IsMinimizable = false,
