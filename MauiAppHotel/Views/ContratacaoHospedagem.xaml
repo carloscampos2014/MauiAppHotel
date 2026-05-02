@@ -59,7 +59,7 @@
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
                 </Border>
-                <Button Text="Avançar" />
+                <Button Text="Avançar" Clicked="Button_Clicked" />
             </VerticalStackLayout>
         </Border>
     </VerticalStackLayout>
