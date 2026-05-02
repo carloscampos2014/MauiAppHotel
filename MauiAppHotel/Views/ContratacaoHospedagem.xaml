@@ -43,13 +43,15 @@
                 </Grid>
                 <Label Text="Escolha sua Suíte" />
                 <Picker x:Name="pckQuarto"
-                        Title="Selecione sua Acomodação" />
+                        Title="Selecione sua Acomodação"
+                        ItemDisplayBinding="{Binding Descricao}"/>
                 <Border Padding="10" Margin="10">
                     <VerticalStackLayout>
                         <Label Text="Período da Estadia" />
                         <HorizontalStackLayout>
                             <Label Text="Check-in:" />
                             <DatePicker x:Name="dtpckCheckin"
+                                        DateSelected="dtpckCheckin_DateSelected"
                                         Format="dd/MM/yyyy" />
                         </HorizontalStackLayout>
                         <HorizontalStackLayout>
