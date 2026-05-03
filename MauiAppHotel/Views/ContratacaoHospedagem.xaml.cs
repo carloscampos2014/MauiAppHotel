@@ -9,7 +9,8 @@ public partial class ContratacaoHospedagem : ContentPage
 		InitializeComponent();
 		PropriedadesApp = (App)Application.Current;
 		pckQuarto.ItemsSource = PropriedadesApp.Quartos;
-		dtpckCheckin.MinimumDate = DateTime.Now;
+        pckQuarto.SelectedIndex = 0;
+        dtpckCheckin.MinimumDate = DateTime.Now;
 		dtpckCheckin.MaximumDate = DateTime.Now.AddMonths(1);
         dtpckCheckout.MinimumDate = dtpckCheckin.Date?.AddDays(1);
         dtpckCheckout.MaximumDate = dtpckCheckin.Date?.AddMonths(6);
@@ -19,7 +20,19 @@ public partial class ContratacaoHospedagem : ContentPage
     {
 		try
 		{
-			await Navigation.PushAsync(new HospedagemContratada());
+			var hospedagem = new Models.HospedagemModel()
+            {
+                DataCheckin = dtpckCheckin.Date.Value,
+                DataCheckout = dtpckCheckout.Date.Value,
+                QtdAdultos = (int)stpAdultos.Value,
+                QtdCriancas = (int)stpCriancas.Value,
+                QuartoSelecionado = (Models.QuartoModel)pckQuarto.SelectedItem
+            };
+
+            await Navigation.PushAsync(new HospedagemContratada()
+            {
+                BindingContext = hospedagem,
+            });
 		}
 		catch (Exception ex)
 		{

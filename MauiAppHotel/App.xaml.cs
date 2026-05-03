@@ -30,6 +30,7 @@ public partial class App : Application
             IsMinimizable = false,
             Width = 400,
             Height = 600,
+            Title = "Hotel App",
             X = (screenWidth - 400) / 2,
             Y = (screenHeight - 600) / 2
         };
