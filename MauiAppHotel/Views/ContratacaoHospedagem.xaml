@@ -13,79 +13,79 @@
             FontFamily="Kalam"
             FontSize="50"
             TextColor="{StaticResource Primary}"/>
-        <Border MinimumHeightRequest="400" Padding="2" Background="{StaticResource Gray100Brush}">
+        <Border Padding="10">
             <VerticalStackLayout>
-                <Border Padding="10">
-                    <VerticalStackLayout>
-                        <Grid RowDefinitions="Auto, Auto"
-                      ColumnDefinitions="*, *, auto">
-                            <Label Grid.Row="0" Grid.Column="0"
+                <Grid RowDefinitions="Auto, Auto"
+                      ColumnDefinitions="*, *, 2*">
+                    <Label Grid.Row="0" Grid.Column="0"
                            Text="Adultos:" />
-                            <Label Grid.Row="0" Grid.Column="1"
+                    <Label Grid.Row="0" Grid.Column="1"
                            Text="{Binding Value}"
                            TextColor="{StaticResource Tertiary}"
                            BindingContext="{x:Reference stpAdultos}"
                            FontAttributes="Bold"
                            HorizontalTextAlignment="Center"/>
-                            <Stepper Grid.Row="0" Grid.Column="2"
+                    <Stepper Grid.Row="0" Grid.Column="2"
                              x:Name="stpAdultos"
+                             MaximumHeightRequest="40"
+                             MaximumWidthRequest="80"
                              Minimum="0"
                              Maximum="10"
                              Increment="1" />
 
-                            <Label Grid.Row="1" Grid.Column="0"
+                    <Label Grid.Row="1" Grid.Column="0"
                            Text="Crianças:" />
-                            <Label Grid.Row="1" Grid.Column="1"
+                    <Label Grid.Row="1" Grid.Column="1"
                            Text="{Binding Value}"
                            TextColor="{StaticResource Tertiary}"
                            BindingContext="{x:Reference stpCriancas}"
                            FontAttributes="Bold"
                            HorizontalTextAlignment="Center"/>
-                            <Stepper Grid.Row="1" Grid.Column="2"
+                    <Stepper Grid.Row="1" Grid.Column="2"
                              x:Name="stpCriancas"
+                             MaximumHeightRequest="40"
+                             MaximumWidthRequest="80"
                              Minimum="0"
                              Maximum="10"
                              Increment="1" />
-                        </Grid>
-                    </VerticalStackLayout>
-                </Border>
-                <Border Padding="10">
-                    <VerticalStackLayout>
-                        <Label HorizontalTextAlignment="Center"
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+        <Border Padding="10">
+            <VerticalStackLayout>
+                <Label HorizontalTextAlignment="Center"
                        Text="Escolha sua Suíte" />
-                        <Picker x:Name="pckQuarto"
+                <Picker x:Name="pckQuarto"
                         ItemDisplayBinding="{Binding Descricao}"/>
-                    </VerticalStackLayout>
-                </Border>
-                <Border Padding="10" Margin="10">
-                    <VerticalStackLayout>
-                        <Grid RowDefinitions="auto, auto, auto" ColumnDefinitions="*, *">
-                            <Label HorizontalOptions="Center"
+            </VerticalStackLayout>
+        </Border>
+        <Border Padding="10" Margin="10">
+            <VerticalStackLayout>
+                <Grid RowDefinitions="auto, auto, auto" ColumnDefinitions="*, *">
+                    <Label HorizontalOptions="Center"
                                    Text="Período da Estadia"
                                    Grid.Row="0" Grid.ColumnSpan="2" />
-                            <Label HorizontalOptions="Center"
+                    <Label HorizontalOptions="Center"
                                    Text="Check-In"
                                    Grid.Row="1" Grid.Column="0" />
-                            <Label HorizontalOptions="Center"
+                    <Label HorizontalOptions="Center"
                                    Text="Check-Out"
                                    Grid.Row="1" Grid.Column="1" />
-                            <DatePicker x:Name="dtpckCheckin"
+                    <DatePicker x:Name="dtpckCheckin"
                                         HorizontalOptions="Center"
                                         Grid.Row="2" Grid.Column="0"
                                         DateSelected="dtpckCheckin_DateSelected"
                                         Format="dd/MM/yyyy" />
-                            <DatePicker x:Name="dtpckCheckout"
+                    <DatePicker x:Name="dtpckCheckout"
                                         HorizontalOptions="Center"
                                         Grid.Row="2" Grid.Column="1"
                                         Format="dd/MM/yyyy" />
-                        </Grid>
-                    </VerticalStackLayout>
-                </Border>
-                <Button Text="Avançar" Margin="10"
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+        <Button Text="Avançar" Margin="10"
                         HorizontalOptions="Center"
                         MinimumWidthRequest="100"
                         Clicked="Button_Clicked" />
-            </VerticalStackLayout>
-        </Border>
     </VerticalStackLayout>
 </ContentPage>
